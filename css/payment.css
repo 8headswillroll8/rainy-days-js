@@ -96,3 +96,9 @@ fieldset {
   cursor: pointer;
   font-weight: 500;
 }
+
+@media (max-width: 800px) {
+  .payment-details__container {
+    flex-direction: column;
+  }
+}

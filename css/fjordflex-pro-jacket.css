@@ -14,6 +14,12 @@
   display: flex;
 }
 
+.jacket__left-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .jacket__title {
   justify-content: space-between;
 }
@@ -60,7 +66,8 @@
 }
 
 .btn--cart {
-  min-width: 500px;
+  width: 100%;
+  max-width: 500px;
   margin: 20px 0;
 }
 
@@ -84,10 +91,18 @@
   color: #0a3641;
   cursor: pointer;
   transition: border 0.2s ease;
+  width: 100%;
+  max-width: 500px;
 }
 
 .size-select__dropdown:hover,
 .size-select__dropdown:focus {
   border-color: #0a3641;
   outline: none;
+}
+
+@media (max-width: 800px) {
+  .jacket__container {
+    flex-direction: column;
+  }
 }
