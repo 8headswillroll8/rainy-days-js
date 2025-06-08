@@ -13,6 +13,16 @@
   <body>
     <header>
       <div class="header__container">
+        <!-- Hidden checkbox toggler for left nav -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+        <!-- Burger button toggles left nav -->
+        <label for="menu-toggle" class="burger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
         <nav class="nav nav__left">
           <ul class="nav__links">
             <li class="nav__item"><a href="product.html">Shop</a></li>
@@ -20,6 +30,7 @@
             <li class="nav__item"><a href="#">Lookbook</a></li>
           </ul>
         </nav>
+
         <a href="index.html" class="nav__logo-wrapper">
           <img
             class="nav__logo"
@@ -27,6 +38,7 @@
             alt="Rainydays logo"
           />
         </a>
+
         <nav class="nav nav__right">
           <ul class="nav__icons">
             <li>
@@ -45,6 +57,7 @@
         </nav>
       </div>
     </header>
+
     <main>
       <section class="feature">
         <div class="feature__content">
