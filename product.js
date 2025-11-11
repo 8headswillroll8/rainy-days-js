@@ -6,8 +6,6 @@ async function getProducts() {
   try {
     const response = await fetch(API_URL_PRODUCTS, { method: "GET" });
     const data = await response.json();
-    console.log(data);
-
     const products = data.data;
 
     products.forEach((product) => {
@@ -15,18 +13,26 @@ async function getProducts() {
       const productImage = document.createElement("img");
       const productTitle = document.createElement("h3");
       const productPrice = document.createElement("p");
+      const productAnchor = document.createElement("a");
 
       productCard.classList.add("product__card");
       productImage.classList.add("product__img");
       productTitle.classList.add("product__title");
       productPrice.classList.add("product__price");
+      productAnchor.classList.add("product__link");
 
       productImage.src = product.image.url;
+      productImage.alt = product.image?.alt || product.title;
+      productImage.loading = "lazy";
+      productImage.decoding = "async";
+
       productTitle.textContent = product.title;
       productPrice.textContent = `${product.price} NOK`;
+      productAnchor.href = `product/jacket.html?id=${product.id}`;
 
       productCard.append(productImage, productTitle, productPrice);
-      container.appendChild(productCard);
+      productAnchor.appendChild(productCard);
+      container.appendChild(productAnchor);
     });
   } catch (error) {
     console.error("Fetching products failed", error);
