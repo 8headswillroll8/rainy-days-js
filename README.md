@@ -30,4 +30,4 @@ The site needs to have every page listed in the site architecture on your chosen
 
 - Please include a link to your live site, deployed on Netlify or GitHub Pages in your submission.
 - Please include a link to your public GitHub repo containing your code in your submission.
-- There is no reflection for this CA.
+- There is no reflection for this CA.# rainy-days-js
