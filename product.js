@@ -28,7 +28,7 @@ async function getProducts() {
 
       productTitle.textContent = product.title;
       productPrice.textContent = `${product.price} NOK`;
-      productAnchor.href = `product/jacket.html?id=${product.id}`;
+      productAnchor.href = `jacket.html?id=${product.id}`;
 
       productCard.append(productImage, productTitle, productPrice);
       productAnchor.appendChild(productCard);

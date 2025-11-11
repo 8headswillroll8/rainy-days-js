@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/product.css" />
     <link rel="stylesheet" href="css/fjordflex-pro-jacket.css" />
+
+    <script type="module" src="jacket.js"></script>
   </head>
   <body>
     <header>
@@ -73,92 +75,8 @@
       </section>
 
       <section class="product-list">
-        <div>
-          <div class="jacket__container">
-            <div>
-              <!-- product -->
-              <article class="card">
-                <div class="card__media">
-                  <img
-                    src="products/RainyDays-Jacket-4-2.png"
-                    alt="Grey jacket with a zipper and pockets"
-                    class="card__image"
-                  />
-                </div>
-              </article>
-            </div>
-            <div class="jacket__left-container">
-              <div class="jacket__info">
-                <div class="jacket__title">
-                  <h1>FjordFlex Pro Jacket</h1>
-                  <h2>$110</h2>
-                </div>
-              </div>
-              <!-- Icons -->
-              <div class="jacket__icons-container">
-                <img
-                  src="icons/sunny-blue.png"
-                  alt="Sun icon"
-                  class="jacket__icons"
-                />
-                <img
-                  src="icons/clear-cloudy-blue.png"
-                  alt="Sun behind sky icon"
-                  class="jacket__icons"
-                />
-                <img
-                  src="icons/windy-blue.png"
-                  alt="Windy cloud icon"
-                  class="jacket__icons"
-                />
-                <img
-                  src="icons/showers-blue.png"
-                  alt="Snowy cloud icon"
-                  class="jacket__icons"
-                />
-              </div>
-              <p class="jacket_text-container">
-                The FjordFlex Pro combines lightweight flexibility with
-                all-weather protection, making it your go-to companion for
-                hiking, skiing, or city storms. With a durable waterproof shell
-                and breathable design, this jacket keeps you dry, comfortable,
-                and ready for any adventure.
-              </p>
-              <div class="jacket__colors-container">
-                <img
-                  src="products/RainyDays-Jacket-4-1.png"
-                  alt="Grey jacket with a zipper and pockets"
-                  class="card__image"
-                />
-                <img
-                  src="products/RainyDays-Jacket-4-3.png"
-                  alt="Grey jacket with a zipper and pockets"
-                  class="card__image"
-                />
-              </div>
-              <!-- Dropdown sizing nav -->
-              <div class="size-select">
-                <label for="size" class="size-select__label visually-hidden">
-                  Choose size</label
-                >
-                <select
-                  id="size"
-                  class="size-select__dropdown"
-                  aria-label="Choose size"
-                >
-                  <option value="" disabled selected>Choose size</option>
-                  <option value="xs">XS</option>
-                  <option value="s">S</option>
-                  <option value="m">M</option>
-                  <option value="l">L</option>
-                  <option value="xl">XL</option>
-                </select>
-              </div>
-              <div>
-                <a href="cart.html" class="btn btn--cart">Add to cart</a>
-              </div>
-            </div>
-          </div>
+        <div class="jacket__container">
+          <!-- Products fetched from API and rendered with DOM manipulation -->
         </div>
       </section>
 
