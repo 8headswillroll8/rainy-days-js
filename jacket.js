@@ -1,21 +1,29 @@
+// Select the container where the product will be displayed
 const container = document.querySelector(".jacket__container");
+
+// Base API setup
 const API_URL = "https://v2.api.noroff.dev";
 const API_URL_PRODUCTS = `${API_URL}/rainy-days`;
 
+// Fetch a single product based on its ID and render it on the page
 async function fetchAndCreateProduct() {
   try {
+    // Get the product ID from the URL query string
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
+    // Stop if no ID was found in the URL
     if (!id) {
       container.textContent = "No product ID provided!";
       return;
     }
 
+    // Fetch product data from the API
     const response = await fetch(`${API_URL_PRODUCTS}/${id}`);
     const data = await response.json();
     const jacketProduct = data.data;
 
+    // Create elements for the product display
     const jacketProductCard = document.createElement("div");
     const jacketProductImage = document.createElement("img");
     const jacketProductTitle = document.createElement("h1");
@@ -23,6 +31,7 @@ async function fetchAndCreateProduct() {
     const jacketProductInfo = document.createElement("p");
     const jacketProductButton = document.createElement("button");
 
+    // Apply BEM-style classes
     jacketProductCard.classList.add("jacket-product__card");
     jacketProductImage.classList.add("jacket-product__img");
     jacketProductTitle.classList.add("jacket-product__title");
@@ -34,6 +43,7 @@ async function fetchAndCreateProduct() {
       "btn--cart"
     );
 
+    // Fill elements with product data
     jacketProductImage.src = jacketProduct.image.url;
     jacketProductImage.alt = jacketProduct.image?.alt || jacketProduct.title;
     jacketProductTitle.textContent = jacketProduct.title;
@@ -49,6 +59,7 @@ async function fetchAndCreateProduct() {
       localStorage.setItem("cart", JSON.stringify(cart));
     });
 
+    // Combine all product elements and display on the page
     jacketProductCard.append(
       jacketProductImage,
       jacketProductTitle,
@@ -58,8 +69,10 @@ async function fetchAndCreateProduct() {
     );
     container.appendChild(jacketProductCard);
   } catch (error) {
+    // Log any issues with the API request
     console.error("Fetching products failed", error);
   }
 }
 
+// Run the function on page load
 fetchAndCreateProduct();
