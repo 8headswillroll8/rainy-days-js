@@ -54,8 +54,22 @@ async function fetchAndCreateProduct() {
     // Handle “Add to cart” clicks by updating localStorage
     jacketProductButton.addEventListener("click", function () {
       console.log("Click detected");
+
+      // Get the current cart from localStorage (or start empty)
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(jacketProduct);
+
+      // Try to find if this product already exists in the cart
+      const existingItem = cart.find((item) => item.id === jacketProduct.id);
+
+      if (existingItem) {
+        // If found, increase its quantity
+        existingItem.quantity++;
+      } else {
+        // If not found, add it as a new item with quantity = 1
+        cart.push({ ...jacketProduct, quantity: 1 });
+      }
+
+      // Save updated cart back to localStorage
       localStorage.setItem("cart", JSON.stringify(cart));
     });
 
@@ -76,3 +90,17 @@ async function fetchAndCreateProduct() {
 
 // Run the function on page load
 fetchAndCreateProduct();
+
+// Select the container where the filter will be displayed
+// Filter product by gender
+const filterContainer = document.createElement("div");
+const filterTitle = document.createElement("h2");
+const filterWomen = document.createElement("button");
+const filterMen = document.createElement("button");
+
+filterContainer.classList.add("filter__container");
+filterTitle.classList.add("filter__title");
+filterWomen.classList.add("filter__women-btn");
+filterMen.classList.add("filter__men-btn");
+
+filterWomen.textContent = "Women";
