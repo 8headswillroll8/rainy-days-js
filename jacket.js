@@ -1,5 +1,3 @@
-console.log("hello world");
-
 const container = document.querySelector(".jacket__container");
 const API_URL = "https://v2.api.noroff.dev";
 const API_URL_PRODUCTS = `${API_URL}/rainy-days`;
@@ -42,6 +40,14 @@ async function fetchAndCreateProduct() {
     jacketProductPrice.textContent = `${jacketProduct.price} NOK`;
     jacketProductInfo.textContent = jacketProduct.description;
     jacketProductButton.textContent = "Add to cart";
+
+    // Handle “Add to cart” clicks by updating localStorage
+    jacketProductButton.addEventListener("click", function () {
+      console.log("Click detected");
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(jacketProduct);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    });
 
     jacketProductCard.append(
       jacketProductImage,
