@@ -90,17 +90,3 @@ async function fetchAndCreateProduct() {
 
 // Run the function on page load
 fetchAndCreateProduct();
-
-// Select the container where the filter will be displayed
-// Filter product by gender
-const filterContainer = document.createElement("div");
-const filterTitle = document.createElement("h2");
-const filterWomen = document.createElement("button");
-const filterMen = document.createElement("button");
-
-filterContainer.classList.add("filter__container");
-filterTitle.classList.add("filter__title");
-filterWomen.classList.add("filter__women-btn");
-filterMen.classList.add("filter__men-btn");
-
-filterWomen.textContent = "Women";

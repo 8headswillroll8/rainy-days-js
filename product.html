@@ -77,7 +77,42 @@
 
       <!-- product grid -->
       <section class="product-grid">
+        <div class="filter__products"></div>
         <h1>Jackets</h1>
+
+        <!-- Data by gender -->
+        <div class="data-filter">
+          <!-- Data filter all -->
+          <input
+            type="radio"
+            id="filter-all"
+            name="gender-filter"
+            value="all"
+          />
+          <label for="filter-all">All</label>
+
+          <!-- Data filter women -->
+          <input
+            type="radio"
+            id="filter-women"
+            name="gender-filter"
+            value="Female"
+          />
+          <label for="filter-women">Women</label>
+
+          <!-- Data filter men -->
+          <input
+            type="radio"
+            id="filter-men"
+            name="gender-filter"
+            value="Male"
+          />
+          <label for="filter-men">Men</label>
+
+          <!-- Clear filter button -->
+          <button id="clear-filter">Clear</button>
+        </div>
+
         <div class="product-list--grid">
           <!-- products here with DOM Manipulation -->
         </div>

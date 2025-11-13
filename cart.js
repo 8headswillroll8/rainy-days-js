@@ -45,8 +45,6 @@ function renderCart() {
 
     // Adding the button for deleting items in the cart
     deleteButton.addEventListener("click", function () {
-      console.log("Click detected");
-
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
       const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
       localStorage.setItem("cart", JSON.stringify(updatedCart));

@@ -2,11 +2,14 @@ const container = document.querySelector(".product-list--grid");
 const API_URL = "https://v2.api.noroff.dev";
 const API_URL_PRODUCTS = `${API_URL}/rainy-days`;
 
+let allProducts = [];
+
 async function getProducts() {
   try {
     const response = await fetch(API_URL_PRODUCTS, { method: "GET" });
     const data = await response.json();
     const products = data.data;
+    allProducts = products;
 
     products.forEach((product) => {
       const productCard = document.createElement("div");
@@ -40,3 +43,17 @@ async function getProducts() {
 }
 
 getProducts();
+
+// Filter product by gender
+
+const filterContainer = document.querySelector(".data-filter");
+const clearButton = document.getElementById("clear-filter");
+
+filterContainer.addEventListener("change", function (event) {
+  const selectedValue = event.target.value;
+  console.log("gender filter:", selectedValue);
+});
+
+clearButton.addEventListener("click", function () {
+  console.log("click detected on clear button");
+});
