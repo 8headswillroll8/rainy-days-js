@@ -143,8 +143,9 @@ footer {
 
 .nav__links li,
 .nav__icons li {
+  position: relative;
   display: inline-block;
-  padding: 0 15px;
+  padding: 5px 15px;
 }
 
 .nav__icons img {
@@ -195,6 +196,18 @@ footer {
   margin: 0;
   padding: 0;
   align-items: center;
+}
+
+/* Counter for the cart */
+
+.cart-counter {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  background-color: #d1f28c;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
 }
 
 @media (max-width: 750px) {
