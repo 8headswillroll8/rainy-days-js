@@ -3,100 +3,88 @@ const paymentForm = document.querySelector(".payment-form");
 paymentForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const payment = document.querySelector(".payment-form");
+  document.querySelectorAll(".error-message").forEach(function (msg) {
+    msg.textContent = "";
+  });
 
-  // Checking if the payment details form is filled out
-  const cardNumber = document.getElementById("card-number").value;
-  const expiration = document.getElementById("expiration-date").value;
-  const cvv = document.getElementById("cvv").value;
+  let isValid = true;
 
-  if (cardNumber.trim() === "") {
-    alert("Card number is missing");
+  const cardNumberInput = document.getElementById("card-number");
+  const expirationInput = document.getElementById("expiration-date");
+  const cvvInput = document.getElementById("cvv");
+
+  const firstNameInput = document.getElementById("first-name");
+  const lastNameInput = document.getElementById("last-name");
+  const addressInput = document.getElementById("address");
+  const cityInput = document.getElementById("city");
+  const countryInput = document.getElementById("country-region");
+  const stateInput = document.getElementById("state");
+  const zipInput = document.getElementById("zip-code");
+
+  const cardNumberError = document.getElementById("card-number-error");
+  const expirationError = document.getElementById("expiration-error");
+  const cvvError = document.getElementById("cvv-error");
+  const firstNameError = document.getElementById("first-name-error");
+  const lastNameError = document.getElementById("last-name-error");
+  const addressError = document.getElementById("address-error");
+  const cityError = document.getElementById("city-error");
+  const countryError = document.getElementById("country-error");
+  const stateError = document.getElementById("state-error");
+  const zipError = document.getElementById("zip-code-error");
+
+  if (cardNumberInput.value.trim() === "") {
+    cardNumberError.textContent = "Card number is missing";
+    isValid = false;
+  }
+
+  if (expirationInput.value.trim() === "") {
+    expirationError.textContent = "Expiration date is missing";
+    isValid = false;
+  }
+
+  if (cvvInput.value.trim() === "") {
+    cvvError.textContent = "CVV is missing";
+    isValid = false;
+  }
+
+  if (firstNameInput.value.trim() === "") {
+    firstNameError.textContent = "First name is missing";
+    isValid = false;
+  }
+
+  if (lastNameInput.value.trim() === "") {
+    lastNameError.textContent = "Last name is missing";
+    isValid = false;
+  }
+
+  if (addressInput.value.trim() === "") {
+    addressError.textContent = "Address is missing";
+    isValid = false;
+  }
+
+  if (cityInput.value.trim() === "") {
+    cityError.textContent = "City is missing";
+    isValid = false;
+  }
+
+  if (countryInput.value.trim() === "") {
+    countryError.textContent = "Country is missing";
+    isValid = false;
+  }
+
+  if (stateInput.value.trim() === "") {
+    stateError.textContent = "State is missing";
+    isValid = false;
+  }
+
+  if (zipInput.value.trim() === "") {
+    zipError.textContent = "ZIP code is missing";
+    isValid = false;
+  }
+
+  if (!isValid) {
     return;
   }
 
-  if (expiration.trim() === "") {
-    alert("Expiration date is missing");
-    return;
-  }
-
-  if (cvv.trim() === "") {
-    alert("CVV is missing");
-    return;
-  }
-
-  // Checking if the shipping details is filled out
-  const firstName = document.querySelector(".shipping__first-name").value;
-  const lastName = document.querySelector(".shipping__last-name").value;
-  const adress = document.querySelector(".shipping__address").value;
-  const city = document.querySelector(".shipping__city").value;
-  const country = document.querySelector(".shipping__country").value;
-  const state = document.querySelector(".shipping__state").value;
-  const zipCode = document.querySelector(".shipping__zip-code").value;
-
-  if (firstName.trim() === "") {
-    alert("First name is missing");
-    return;
-  }
-
-  if (lastName.trim() === "") {
-    alert("Last name is missing");
-    return;
-  }
-
-  if (adress.trim() === "") {
-    alert("Adress is missing");
-    return;
-  }
-
-  if (city.trim() === "") {
-    alert("City is missing");
-    return;
-  }
-
-  if (country.trim() === "") {
-    alert("Country is missing");
-    return;
-  }
-
-  if (state.trim() === "") {
-    alert("State is missing");
-    return;
-  }
-
-  if (zipCode.trim() === "") {
-    alert("Zip code is missing");
-    return;
-  }
+  window.location.href = "confirmation.html";
 });
-
-/* 
-
-• Select the form
-• Listen for submit
-• preventDefault so the page does not move forward
-• Check every required field
-• If anything is empty, show feedback
-• If everything looks good, send the user to confirmation.html
-
-const firstNameField = document.getElementById("first-name");
-const value = firstNameField.value;
-
-if (cardNumber.trim() === "") {
-alert("Card number is missing");
-return;
-}
-
-
-Check empty
-If the field is empty, show a message and stop.
-
-Check only digits
-Remove spaces first.
-Then check if every character is a digit.
-If any character is not a digit, show a message and stop.
-
-Check length
-After removing spaces, count the characters.
-If it is not 16, show a message and stop.
-*/

@@ -74,7 +74,7 @@
           <img src="icons/process-2.png" alt="Progress bar step two" />
         </div>
       </section>
-
+      <!-- Form -->
       <section class="payment-details__container">
         <form class="payment-form" action="">
           <div class="payment-details">
@@ -123,6 +123,7 @@
                 placeholder="1234 5678 9101 1121"
                 autocomplete="cc-number"
               />
+              <p class="error-message" id="card-number-error"></p>
 
               <fieldset class="payment__field--double">
                 <div class="payment__date">
@@ -133,6 +134,7 @@
                     id="expiration-date"
                     placeholder="MM/YY"
                   />
+                  <p class="error-message" id="expiration-error"></p>
                 </div>
 
                 <div class="payment__cvv">
@@ -143,6 +145,7 @@
                     id="cvv"
                     placeholder="123"
                   />
+                  <p class="error-message" id="cvv-error"></p>
                 </div>
               </fieldset>
             </fieldset>
@@ -160,6 +163,7 @@
                   id="first-name"
                   placeholder="First Name"
                 />
+                <p class="error-message" id="first-name-error"></p>
               </div>
               <div class="shipping__last-name">
                 <label for="last-name" class="visually-hidden">Last Name</label>
@@ -169,6 +173,7 @@
                   id="last-name"
                   placeholder="Last Name"
                 />
+                <p class="error-message" id="last-name-error"></p>
               </div>
             </fieldset>
             <fieldset>
@@ -180,6 +185,7 @@
                   id="address"
                   placeholder="Address"
                 />
+                <p class="error-message" id="address-error"></p>
               </div>
 
               <div class="shipping__city">
@@ -190,6 +196,7 @@
                   id="city"
                   placeholder="City"
                 />
+                <p class="error-message" id="city-error"></p>
               </div>
 
               <div class="shipping__country">
@@ -202,6 +209,7 @@
                   id="country-region"
                   placeholder="Country/Region"
                 />
+                <p class="error-message" id="country-error"></p>
               </div>
             </fieldset>
             <fieldset class="shipping__field--double">
@@ -213,6 +221,7 @@
                   id="state"
                   placeholder="State"
                 />
+                <p class="error-message" id="state-error"></p>
               </div>
               <div class="shipping__zip-code">
                 <label for="zip-code" class="visually-hidden">ZIP Code</label>
@@ -222,10 +231,11 @@
                   id="zip-code"
                   placeholder="ZIP Code"
                 />
+                <p class="error-message" id="zip-code-error"></p>
               </div>
             </fieldset>
             <!-- Button for proceeding to payment -->
-            <button class="btn btn--cart btn--payment">
+            <button class="btn btn--cart btn--payment" type="submit">
               Proceed to payment
             </button>
           </div>
