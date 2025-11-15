@@ -34,6 +34,14 @@ img {
   display: block;
 }
 
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
+
 h1 {
   font-size: 2.75rem;
   font-weight: 300;

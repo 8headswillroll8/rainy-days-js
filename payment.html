@@ -76,149 +76,160 @@
       </section>
 
       <section class="payment-details__container">
-        <div class="payment-details">
-          <h1 class="payment__title">Payment</h1>
-          <fieldset class="payment-options">
-            <legend>Pay With:</legend>
+        <form class="payment-form" action="">
+          <div class="payment-details">
+            <h1 class="payment__title">Payment</h1>
+            <fieldset class="payment-options">
+              <legend>Pay With:</legend>
 
-            <div class="radio-option">
-              <input
-                type="radio"
-                id="card"
-                name="payment-options"
-                value="card"
-              />
-              <label for="card">Card</label>
-            </div>
-
-            <div class="radio-option">
-              <input
-                type="radio"
-                id="apple-pay"
-                name="payment-options"
-                value="apple-pay"
-              />
-              <label for="apple-pay">Apple Pay</label>
-            </div>
-
-            <div class="radio-option">
-              <input
-                type="radio"
-                id="paypal"
-                name="payment-options"
-                value="paypal"
-              />
-              <label for="paypal">PayPal</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="payment-card-number">
-            <legend>Card Number</legend>
-
-            <input
-              type="text"
-              id="card-number"
-              name="payment-card-number"
-              placeholder="1234 5678 9101 1121"
-              autocomplete="cc-number"
-            />
-
-            <fieldset class="payment__field--double">
-              <div class="payment__date">
-                <label for="expiration-date">Expiration Date</label>
+              <div class="radio-option">
                 <input
-                  type="text"
-                  name="payment-card-expiration"
-                  id="expiration-date"
-                  placeholder="MM/YY"
+                  type="radio"
+                  id="card"
+                  name="payment-options"
+                  value="card"
                 />
+                <label for="card">Card</label>
               </div>
 
-              <div class="payment__cvv">
-                <label for="cvv">CVV</label>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="apple-pay"
+                  name="payment-options"
+                  value="apple-pay"
+                />
+                <label for="apple-pay">Apple Pay</label>
+              </div>
+
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="paypal"
+                  name="payment-options"
+                  value="paypal"
+                />
+                <label for="paypal">PayPal</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="payment-card-number">
+              <legend>Card Number</legend>
+
+              <input
+                type="text"
+                id="card-number"
+                name="payment-card-number"
+                placeholder="1234 5678 9101 1121"
+                autocomplete="cc-number"
+              />
+
+              <fieldset class="payment__field--double">
+                <div class="payment__date">
+                  <label for="expiration-date">Expiration Date</label>
+                  <input
+                    type="text"
+                    name="payment-card-expiration"
+                    id="expiration-date"
+                    placeholder="MM/YY"
+                  />
+                </div>
+
+                <div class="payment__cvv">
+                  <label for="cvv">CVV</label>
+                  <input
+                    type="text"
+                    name="payment-card-cvv"
+                    id="cvv"
+                    placeholder="123"
+                  />
+                </div>
+              </fieldset>
+            </fieldset>
+          </div>
+          <div class="shipping-details">
+            <h2 class="shipping__title">Shipping</h2>
+            <fieldset class="shipping__field--double">
+              <div class="shipping__first-name">
+                <label for="first-name" class="visually-hidden"
+                  >First Name</label
+                >
                 <input
                   type="text"
-                  name="payment-card-cvv"
-                  id="cvv"
-                  placeholder="123"
+                  name="details"
+                  id="first-name"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="shipping__last-name">
+                <label for="last-name" class="visually-hidden">Last Name</label>
+                <input
+                  type="text"
+                  name="details"
+                  id="last-name"
+                  placeholder="Last Name"
                 />
               </div>
             </fieldset>
-          </fieldset>
-        </div>
-        <div class="shipping-details">
-          <h2 class="shipping__title">Shipping</h2>
-          <fieldset class="shipping__field--double">
-            <div class="shipping__first-name">
-              <label for="first-name" class="visually-hidden">First Name</label>
-              <input
-                type="text"
-                name="details"
-                id="first-name"
-                placeholder="First Name"
-              />
-            </div>
-            <div class="shipping__last-name">
-              <label for="last-name" class="visually-hidden">Last Name</label>
-              <input
-                type="text"
-                name="details"
-                id="last-name"
-                placeholder="Last Name"
-              />
-            </div>
-          </fieldset>
-          <fieldset>
-            <div class="shipping__address">
-              <label for="address" class="visually-hidden">Address</label>
-              <input
-                type="text"
-                name="details"
-                id="address"
-                placeholder="Address"
-              />
-            </div>
+            <fieldset>
+              <div class="shipping__address">
+                <label for="address" class="visually-hidden">Address</label>
+                <input
+                  type="text"
+                  name="details"
+                  id="address"
+                  placeholder="Address"
+                />
+              </div>
 
-            <div class="shipping__city">
-              <label for="city" class="visually-hidden">City</label>
-              <input type="text" name="details" id="city" placeholder="City" />
-            </div>
+              <div class="shipping__city">
+                <label for="city" class="visually-hidden">City</label>
+                <input
+                  type="text"
+                  name="details"
+                  id="city"
+                  placeholder="City"
+                />
+              </div>
 
-            <div class="shipping__country">
-              <label for="country-region" class="visually-hidden"
-                >Country/Region</label
-              >
-              <input
-                type="text"
-                name="details"
-                id="country-region"
-                placeholder="Country/Region"
-              />
-            </div>
-          </fieldset>
-          <fieldset class="shipping__field--double">
-            <div class="shipping__state">
-              <label for="state" class="visually-hidden">State</label>
-              <input
-                type="text"
-                name="details"
-                id="state"
-                placeholder="State"
-              />
-            </div>
-            <div class="shipping__zip-code">
-              <label for="zip-code" class="visually-hidden">ZIP Code</label>
-              <input
-                type="text"
-                name="details"
-                id="zip-code"
-                placeholder="ZIP Code"
-              />
-            </div>
-          </fieldset>
-          <!-- Complete Purchase -->
-          <button class="btn btn--cart btn--payment">Proceed to payment</button>
-        </div>
+              <div class="shipping__country">
+                <label for="country-region" class="visually-hidden"
+                  >Country/Region</label
+                >
+                <input
+                  type="text"
+                  name="details"
+                  id="country-region"
+                  placeholder="Country/Region"
+                />
+              </div>
+            </fieldset>
+            <fieldset class="shipping__field--double">
+              <div class="shipping__state">
+                <label for="state" class="visually-hidden">State</label>
+                <input
+                  type="text"
+                  name="details"
+                  id="state"
+                  placeholder="State"
+                />
+              </div>
+              <div class="shipping__zip-code">
+                <label for="zip-code" class="visually-hidden">ZIP Code</label>
+                <input
+                  type="text"
+                  name="details"
+                  id="zip-code"
+                  placeholder="ZIP Code"
+                />
+              </div>
+            </fieldset>
+            <!-- Button for proceeding to payment -->
+            <button class="btn btn--cart btn--payment">
+              Proceed to payment
+            </button>
+          </div>
+        </form>
       </section>
 
       <section class="shipping">
