@@ -16,7 +16,21 @@ function getCartCount() {
   return count;
 }
 
-const counterIcon = document.querySelector("cart-counter");
+function updateCartCount(count) {
+  const counterIcon = document.querySelector(".cart-counter");
+
+  if (count > 0) {
+    counterIcon.classList.remove("cart-counter--hidden");
+    counterIcon.textContent = count;
+  } else {
+    counterIcon.classList.add("cart-counter--hidden");
+  }
+}
+
+window.addEventListener("load", function () {
+  const count = getCartCount();
+  updateCartCount(count);
+});
 
 function renderCart() {
   // Display message is cart is empty
@@ -62,6 +76,10 @@ function renderCart() {
       const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       productContainer.remove();
+
+      // Updating the cart counter
+      const count = getCartCount();
+      updateCartCount(count);
     });
   });
 }

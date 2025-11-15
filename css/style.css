@@ -210,6 +210,10 @@ footer {
   border-radius: 50%;
 }
 
+.cart-counter--hidden {
+  display: none;
+}
+
 @media (max-width: 750px) {
   .burger {
     display: flex;

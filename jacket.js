@@ -1,3 +1,34 @@
+function getCartCount() {
+  // Reads the cart from storage and returns total quantity
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = 0;
+
+  cart.forEach((item) => {
+    count += item.quantity || 1;
+  });
+
+  return count;
+}
+
+function updateCartCount(count) {
+  // Updates the cart badge based on the current count
+  const counterIcon = document.querySelector(".cart-counter");
+
+  // Stops if the badge is not on this page
+  if (!counterIcon) {
+    return;
+  }
+
+  if (count > 0) {
+    // Shows the badge and writes the number
+    counterIcon.classList.remove("cart-counter--hidden");
+    counterIcon.textContent = count;
+  } else {
+    // Hides the badge if nothing in cart
+    counterIcon.classList.add("cart-counter--hidden");
+  }
+}
+
 // Select the container where the product will be displayed
 const container = document.querySelector(".jacket__container");
 
@@ -71,6 +102,10 @@ async function fetchAndCreateProduct() {
 
       // Save updated cart back to localStorage
       localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Updating the cart counter icon
+      const count = getCartCount();
+      updateCartCount(count);
     });
 
     // Combine all product elements and display on the page
