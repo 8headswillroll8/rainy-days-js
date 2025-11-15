@@ -5,6 +5,19 @@ console.log(cart);
 // Select the container where the product will be displayed
 const container = document.querySelector(".cart__container");
 
+function getCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = 0;
+
+  cart.forEach((item) => {
+    count += item.quantity || 1;
+  });
+
+  return count;
+}
+
+const counterIcon = document.querySelector("cart-counter");
+
 function renderCart() {
   // Display message is cart is empty
   if (cart.length === 0) {
