@@ -1,174 +1,128 @@
-const paymentForm = document.querySelector(".payment-form");
+console.log("hello world");
 
-paymentForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+function getCartCount() {
+  // Reads the cart from storage and returns total quantity
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = 0;
 
-  // Clear old error messages
-  document.querySelectorAll(".error-message").forEach(function (msg) {
-    msg.textContent = "";
+  cart.forEach((item) => {
+    count += item.quantity || 1;
   });
 
-  // Remove old error borders
-  document.querySelectorAll("input").forEach(function (input) {
-    input.classList.remove("error");
-  });
+  return count;
+}
 
-  let isValid = true;
+function updateCartCount(count) {
+  // Updates the cart badge based on the current count
+  const counterIcon = document.querySelector(".cart-counter");
 
-  // Payment inputs
-  const cardNumberInput = document.getElementById("card-number");
-  const expirationInput = document.getElementById("expiration-date");
-  const cvvInput = document.getElementById("cvv");
-
-  // Shipping inputs
-  const firstNameInput = document.getElementById("first-name");
-  const lastNameInput = document.getElementById("last-name");
-  const addressInput = document.getElementById("address");
-  const cityInput = document.getElementById("city");
-  const countryInput = document.getElementById("country-region");
-  const stateInput = document.getElementById("state");
-  const zipInput = document.getElementById("zip-code");
-
-  // Error elements
-  const cardNumberError = document.getElementById("card-number-error");
-  const expirationError = document.getElementById("expiration-error");
-  const cvvError = document.getElementById("cvv-error");
-
-  const firstNameError = document.getElementById("first-name-error");
-  const lastNameError = document.getElementById("last-name-error");
-  const addressError = document.getElementById("address-error");
-  const cityError = document.getElementById("city-error");
-  const countryError = document.getElementById("country-error");
-  const stateError = document.getElementById("state-error");
-  const zipError = document.getElementById("zip-code-error");
-
-  // 1. Empty checks
-
-  // Card number
-  if (cardNumberInput.value.trim() === "") {
-    cardNumberError.textContent = "Card number is missing";
-    cardNumberInput.classList.add("error");
-    isValid = false;
+  if (count > 0) {
+    // Shows the badge and writes the number
+    counterIcon.classList.remove("cart-counter--hidden");
+    counterIcon.textContent = count;
+  } else {
+    // Hides the badge if nothing in cart
+    counterIcon.classList.add("cart-counter--hidden");
   }
+}
 
-  // Expiration
-  if (expirationInput.value.trim() === "") {
-    expirationError.textContent = "Expiration date is missing";
-    expirationInput.classList.add("error");
-    isValid = false;
-  }
+// Select the container where the product will be displayed
+const container = document.querySelector(".jacket__container");
 
-  // CVV
-  if (cvvInput.value.trim() === "") {
-    cvvError.textContent = "CVV is missing";
-    cvvInput.classList.add("error");
-    isValid = false;
-  }
+// Base API setup
+const API_URL = "https://v2.api.noroff.dev";
+const API_URL_PRODUCTS = `${API_URL}/rainy-days`;
 
-  // First name
-  if (firstNameInput.value.trim() === "") {
-    firstNameError.textContent = "First name is missing";
-    firstNameInput.classList.add("error");
-    isValid = false;
-  }
+// Fetch a single product based on its ID and render it on the page
+async function fetchAndCreateProduct() {
+  try {
+    // Get the product ID from the URL query string
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
 
-  // Last name
-  if (lastNameInput.value.trim() === "") {
-    lastNameError.textContent = "Last name is missing";
-    lastNameInput.classList.add("error");
-    isValid = false;
-  }
-
-  // Address
-  if (addressInput.value.trim() === "") {
-    addressError.textContent = "Address is missing";
-    addressInput.classList.add("error");
-    isValid = false;
-  }
-
-  // City
-  if (cityInput.value.trim() === "") {
-    cityError.textContent = "City is missing";
-    cityInput.classList.add("error");
-    isValid = false;
-  }
-
-  // Country
-  if (countryInput.value.trim() === "") {
-    countryError.textContent = "Country is missing";
-    countryInput.classList.add("error");
-    isValid = false;
-  }
-
-  // State
-  if (stateInput.value.trim() === "") {
-    stateError.textContent = "State is missing";
-    stateInput.classList.add("error");
-    isValid = false;
-  }
-
-  // ZIP
-  if (zipInput.value.trim() === "") {
-    zipError.textContent = "ZIP code is missing";
-    zipInput.classList.add("error");
-    isValid = false;
-  }
-
-  // 2. Format checks (only if not empty)
-
-  // Card number: digits only, 16 digits
-  if (cardNumberInput.value.trim() !== "") {
-    const digits = cardNumberInput.value.replace(/\s+/g, "");
-
-    if (!/^\d+$/.test(digits)) {
-      cardNumberError.textContent = "Card number must contain digits only";
-      cardNumberInput.classList.add("error");
-      isValid = false;
-    } else if (digits.length !== 16) {
-      cardNumberError.textContent = "Card number must be 16 digits";
-      cardNumberInput.classList.add("error");
-      isValid = false;
+    // Stop if no ID was found in the URL
+    if (!id) {
+      container.textContent = "No product ID provided!";
+      return;
     }
+
+    // Fetch product data from the API
+    const response = await fetch(`${API_URL_PRODUCTS}/${id}`);
+    const data = await response.json();
+    const jacketProduct = data.data;
+
+    // Create elements for the product display
+    const jacketProductCard = document.createElement("div");
+    const cardimage = document.createElement("div");
+    const cardContent = document.createElement("div");
+    const jacketProductImage = document.createElement("img");
+    const jacketProductTitle = document.createElement("h1");
+    const jacketProductPrice = document.createElement("h2");
+    const jacketProductInfo = document.createElement("p");
+    const jacketProductButton = document.createElement("button");
+
+    // Apply BEM-style classes
+    jacketProductCard.classList.add("jacket-product__card");
+    cardimage.classList.add(".card__image");
+    cardContent.classList.add(".card__content");
+    jacketProductImage.classList.add("jacket-product__img");
+    jacketProductTitle.classList.add("jacket-product__title");
+    jacketProductPrice.classList.add("jacket-product__price");
+    jacketProductInfo.classList.add("jacket-product__info");
+    jacketProductButton.classList.add(
+      "jacket-product__btn",
+      "btn",
+      "btn--cart"
+    );
+
+    // Fill elements with product data
+    jacketProductImage.src = jacketProduct.image.url;
+    jacketProductImage.alt = jacketProduct.image?.alt || jacketProduct.title;
+    jacketProductTitle.textContent = jacketProduct.title;
+    jacketProductPrice.textContent = `${jacketProduct.price} NOK`;
+    jacketProductInfo.textContent = jacketProduct.description;
+    jacketProductButton.textContent = "Add to cart";
+
+    // Handle “Add to cart” clicks by updating localStorage
+    jacketProductButton.addEventListener("click", function () {
+      console.log("Click detected");
+
+      // Get the current cart from localStorage (or start empty)
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Try to find if this product already exists in the cart
+      const existingItem = cart.find((item) => item.id === jacketProduct.id);
+
+      if (existingItem) {
+        // If found, increase its quantity
+        existingItem.quantity++;
+      } else {
+        // If not found, add it as a new item with quantity = 1
+        cart.push({ ...jacketProduct, quantity: 1 });
+      }
+
+      // Save updated cart back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Updating the cart counter icon
+      const count = getCartCount();
+      updateCartCount(count);
+    });
+
+    // Combine all product elements and display on the page
+    jacketProductCard.append(
+      jacketProductImage,
+      jacketProductTitle,
+      jacketProductPrice,
+      jacketProductInfo,
+      jacketProductButton
+    );
+    container.appendChild(jacketProductCard);
+  } catch (error) {
+    // Log any issues with the API request
+    console.error("Fetching products failed", error);
   }
+}
 
-  // Expiration: MM/YY
-  if (expirationInput.value.trim() !== "") {
-    const exp = expirationInput.value.trim();
-
-    if (!/^\d{2}\/\d{2}$/.test(exp)) {
-      expirationError.textContent = "Use MM/YY format";
-      expirationInput.classList.add("error");
-      isValid = false;
-    }
-  }
-
-  // CVV: exactly 3 digits
-  if (cvvInput.value.trim() !== "") {
-    const cvvValue = cvvInput.value.trim();
-
-    if (!/^\d{3}$/.test(cvvValue)) {
-      cvvError.textContent = "CVV must be 3 digits";
-      cvvInput.classList.add("error");
-      isValid = false;
-    }
-  }
-
-  // ZIP: at least 4 digits
-  if (zipInput.value.trim() !== "") {
-    const zipValue = zipInput.value.trim();
-
-    if (!/^\d{4,}$/.test(zipValue)) {
-      zipError.textContent = "ZIP must be at least 4 digits";
-      zipInput.classList.add("error");
-      isValid = false;
-    }
-  }
-
-  // Stop if anything failed
-  if (!isValid) {
-    return;
-  }
-
-  // All good, go to confirmation page
-  window.location.href = "confirmation.html";
-});
+// Run the function on page load
+fetchAndCreateProduct();

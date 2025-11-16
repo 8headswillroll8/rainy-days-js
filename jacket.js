@@ -53,6 +53,8 @@ async function fetchAndCreateProduct() {
 
     // Create elements for the product display
     const jacketProductCard = document.createElement("div");
+    const cardImage = document.createElement("div");
+    const cardContent = document.createElement("div");
     const jacketProductImage = document.createElement("img");
     const jacketProductTitle = document.createElement("h1");
     const jacketProductPrice = document.createElement("h2");
@@ -61,6 +63,8 @@ async function fetchAndCreateProduct() {
 
     // Apply BEM-style classes
     jacketProductCard.classList.add("jacket-product__card");
+    cardImage.classList.add(".card__image");
+    cardContent.classList.add(".card__content");
     jacketProductImage.classList.add("jacket-product__img");
     jacketProductTitle.classList.add("jacket-product__title");
     jacketProductPrice.classList.add("jacket-product__price");
@@ -106,13 +110,16 @@ async function fetchAndCreateProduct() {
     });
 
     // Combine all product elements and display on the page
-    jacketProductCard.append(
-      jacketProductImage,
+    cardImage.append(jacketProductImage);
+
+    cardContent.append(
       jacketProductTitle,
       jacketProductPrice,
       jacketProductInfo,
       jacketProductButton
     );
+
+    jacketProductCard.append(cardContent, cardImage);
     container.appendChild(jacketProductCard);
   } catch (error) {
     // Log any issues with the API request
