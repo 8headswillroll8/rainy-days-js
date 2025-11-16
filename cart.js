@@ -1,15 +1,18 @@
-// Fetch product(s) from local storage
+// Cart page script, reads items from localStorage and shows them in the cart
+
+// Fetch product(s) from localStorage when the file loads
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-console.log(cart);
-// Select the container where the product will be displayed
+// Select the container where the cart products will be displayed
 const container = document.querySelector(".cart__container");
 
 function getCartCount() {
+  // Read cart again from localStorage and return total quantity
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let count = 0;
 
   cart.forEach((item) => {
+    // Each item has a quantity value, default to 1 if missing
     count += item.quantity || 1;
   });
 
@@ -17,28 +20,33 @@ function getCartCount() {
 }
 
 function updateCartCount(count) {
+  // Update the cart counter icon in the header
   const counterIcon = document.querySelector(".cart-counter");
 
   if (count > 0) {
+    // Show the badge and display the number of items
     counterIcon.classList.remove("cart-counter--hidden");
     counterIcon.textContent = count;
   } else {
+    // Hide the badge when the cart is empty
     counterIcon.classList.add("cart-counter--hidden");
   }
 }
 
+// Make sure the cart counter is correct when the cart page loads
 window.addEventListener("load", function () {
   const count = getCartCount();
   updateCartCount(count);
 });
 
 function renderCart() {
-  // Display message is cart is empty
+  // Display message if cart is empty and stop
   if (cart.length === 0) {
     container.textContent = "Your cart is empty";
     return;
   }
 
+  // Loop through each cart item and render it
   cart.forEach((item) => {
     // Create elements for the product display
     const productContainer = document.createElement("div");
@@ -70,18 +78,26 @@ function renderCart() {
     );
     container.appendChild(productContainer);
 
-    // Adding the button for deleting items in the cart
+    // Add click handler for deleting items in the cart
     deleteButton.addEventListener("click", function () {
+      // Read the latest cart from localStorage
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Create a new cart without this item
       const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
+
+      // Save the updated cart back to localStorage
       localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      // Remove this item from the DOM
       productContainer.remove();
 
-      // Updating the cart counter
+      // Update the cart counter after removal
       const count = getCartCount();
       updateCartCount(count);
     });
   });
 }
 
+// Render all cart items when the script runs
 renderCart();
