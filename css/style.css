@@ -101,7 +101,7 @@ footer {
   padding: 0;
   margin: 0;
   gap: 0.5rem;
-  padding: 50px 50px;
+  padding: 50px 10px;
 }
 
 .breadcrumb li::after {
@@ -216,6 +216,11 @@ footer {
   height: 17px;
   width: 17px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  pointer-events: none;
 }
 
 .cart-counter--hidden {

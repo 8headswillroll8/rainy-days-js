@@ -1,3 +1,5 @@
+console.log("hello world");
+
 function getCartCount() {
   // Reads the cart from storage and returns total quantity
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -13,11 +15,6 @@ function getCartCount() {
 function updateCartCount(count) {
   // Updates the cart badge based on the current count
   const counterIcon = document.querySelector(".cart-counter");
-
-  // Stops if the badge is not on this page
-  if (!counterIcon) {
-    return;
-  }
 
   if (count > 0) {
     // Shows the badge and writes the number

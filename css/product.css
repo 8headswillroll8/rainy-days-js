@@ -26,14 +26,14 @@
   font-weight: 300;
   font-style: italic;
   font-size: 1.8rem;
-  padding: 20px 55px;
+  padding: 20px 10px;
 }
 
 .product-list--grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .page-number ol {
@@ -49,4 +49,67 @@
 .page-number li:last-child::after {
   content: "›";
   margin: 0 0.3rem;
+}
+
+.product__img {
+  max-height: 250px;
+  padding: 10px;
+}
+
+.product__card {
+  transition: transform 0.2s;
+}
+
+.product__card:hover {
+  transform: scale(1.05);
+}
+
+.product__title {
+  margin: 8px 0;
+}
+
+/* Filter by gender */
+.data-filter {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+/* Hide native radio */
+.data-filter input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Style labels as buttons */
+.data-filter label {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+/* Hover feedback */
+.data-filter label:hover {
+  transform: scale(1.04);
+}
+
+/* Checked state */
+.data-filter input[type="radio"]:checked + label {
+  background-color: #d1f28c;
+  border-color: #d1f28c;
+  color: #0a3641;
+}
+
+/* Style the clear button with contrast */
+#clear-filter {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #0a3641;
 }
