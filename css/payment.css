@@ -34,6 +34,10 @@
   padding: 2rem;
 }
 
+.payment-form {
+  display: flex;
+}
+
 .payment__title,
 .shipping__title {
   font-size: 1.5rem;
