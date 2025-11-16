@@ -63,8 +63,8 @@ async function fetchAndCreateProduct() {
 
     // Apply BEM-style classes
     jacketProductCard.classList.add("jacket-product__card");
-    cardImage.classList.add(".card__image");
-    cardContent.classList.add(".card__content");
+    cardImage.classList.add("card__image");
+    cardContent.classList.add("card__content");
     jacketProductImage.classList.add("jacket-product__img");
     jacketProductTitle.classList.add("jacket-product__title");
     jacketProductPrice.classList.add("jacket-product__price");
