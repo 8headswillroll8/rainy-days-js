@@ -1,22 +1,65 @@
-# HTML & CSS Course Assignment
+# Rainy Days, JavaScript Course Assignment
 
-## Brief
+![Project preview](./images/rainy-days-2-preview.jpg)
 
-Goal
-Using your new skills writing JavaScript, create an interactive online store to display
-product from an API endpoint. Use one of the three provided API URLs to display
-products in HTML and allow users to create a basket of items.
-You may use your existing cross course project code as a starting point or start a
-fresh project if this is not available. We recommend using an existing project as
-styling will not be graded, but is nice to have in the final submission
-User Stories
+An interactive online store built with JavaScript that displays products from an API and allows users to manage a shopping basket.
 
-## User Stories
+## Description
 
-- As a user, I want to view a list of products on the homepage.
-- As a user, I want to filter products by category, gender or genre.
-- As a user, I want to view a single product page with more detail.
-- As a user, I want to add a product to my basket.
-- As a user, I want to remove a product from my basket.
-- As a user, I want to view a summary of my cart on the checkout page.
-- As a user, I want to view an order-confirmation screen after checking out.
+Rainy Days is an interactive storefront created as part of the JavaScript course assignment. The goal of the project was to build a dynamic website that retrieves product data from an API and allows users to browse products and manage a shopping cart.
+
+The project focuses on working with APIs, dynamic rendering of content, and basic e-commerce functionality using JavaScript.
+
+The project includes:
+
+- Product list displayed from an API
+- Filtering products by category or type
+- Individual product pages with detailed information
+- Add and remove products from a shopping basket
+- Cart summary displayed on the checkout page
+- Order confirmation screen after checkout
+
+## Built With
+
+- HTML5
+- CSS3
+- JavaScript
+- REST API
+
+## Getting Started
+
+### Installing
+
+Clone the repository:
+
+git clone https://github.com/8headswillroll8/rainy-days-js.git
+
+Open the project folder in your preferred code editor.
+
+Running
+
+This is a static front end project and does not require a build process.
+
+You can run the project by:
+
+Opening the folder in VS Code
+
+Running a local development server such as Live Server
+
+You can also open index.html directly in your browser.
+
+Live Site
+
+https://8headswillroll8.github.io/rainy-days-js/
+
+Repository
+
+https://github.com/8headswillroll8/rainy-days-js
+
+Contact
+
+GitHub: https://github.com/8headswillroll8
+
+Acknowledgments
+
+This project was developed as part of the JavaScript course at Noroff.
