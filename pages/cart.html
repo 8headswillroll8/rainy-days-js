@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Engineered for adventure—this all-weather jacket keeps up with every forecast and every move. Ideal for outdoor sports, travel, and daily wear."
+      content="The FjordFlex Pro is your all-weather essential—lightweight, waterproof, and breathable for hiking, skiing, or city storms."
     />
-    <title>Rainy Days | Product</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/product.css" />
+    <title>Rainy Days | Cart</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+    <link rel="stylesheet" href="../css/fjordflex-pro-jacket.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
 
-    <script type="module" src="product.js"></script>
+    <script type="module" src="../js/cart.js"></script>
   </head>
   <body>
     <header>
@@ -28,16 +30,16 @@
 
         <nav class="nav nav__left">
           <ul class="nav__links">
-            <li class="nav__item"><a href="product.html">Shop</a></li>
+            <li class="nav__item"><a href="./product.html">Shop</a></li>
             <li class="nav__item"><a href="#">New Arrivals</a></li>
             <li class="nav__item"><a href="#">Lookbook</a></li>
           </ul>
         </nav>
 
-        <a href="index.html" class="nav__logo-wrapper">
+        <a href="../index.html" class="nav__logo-wrapper">
           <img
             class="nav__logo"
-            src="logo/rainy-days-logo.png"
+            src="../logo/rainy-days-logo.png"
             alt="Rainydays logo"
           />
         </a>
@@ -45,17 +47,17 @@
         <nav class="nav nav__right">
           <ul class="nav__icons">
             <li>
-              <a href="#"><img src="icons/heart.png" alt="Likes" /></a>
+              <a href="#"><img src="../icons/heart.png" alt="Likes" /></a>
             </li>
             <li>
-              <a href="#"><img src="icons/search.png" alt="Search" /></a>
+              <a href="#"><img src="../icons/search.png" alt="Search" /></a>
             </li>
             <li>
-              <a href="#"><img src="icons/profile.png" alt="Profile" /></a>
+              <a href="#"><img src="../icons/profile.png" alt="Profile" /></a>
             </li>
             <li>
-              <a href="cart.html"
-                ><img src="icons/cart.png" alt="Cart" id="cart-icon" /><span
+              <a href="./cart.html"
+                ><img src="../icons/cart.png" alt="Cart" id="cart-icon" /><span
                   class="cart-counter cart-counter--hidden"
                 ></span
               ></a>
@@ -65,75 +67,34 @@
       </div>
     </header>
     <main>
-      <section class="cover__container">
-        <img
-          src="images/rainyday-mood-nature.jpg"
-          alt="mountain view with water and a glimt of a blurry hand passing in the foreground"
-          class="cover__image"
-        />
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+      <section>
+        <!-- Breadcrumb nav -->
+        <nav class="breadcrumb breadcrumb--jacket" aria-label="Breadcrumb">
           <ol>
-            <li><a href="index.html">Home page</a></li>
-            <li aria-current="page">Jackets</li>
+            <li aria-current="page">
+              <a href="./product.html">‹ Continue Shopping</a>
+            </li>
           </ol>
         </nav>
+        <div class="progress-bar">
+          <img src="../icons/process-1.png" alt="Progress bar step one" />
+        </div>
       </section>
 
-      <!-- product grid -->
-      <section class="product-grid">
-        <div class="filter__products"></div>
-        <h1>Jackets</h1>
-
-        <!-- Filter products by gender -->
-        <div class="data-filter">
-          <!-- Filter all -->
-          <input
-            type="radio"
-            id="filter-all"
-            name="gender-filter"
-            value="all"
-          />
-          <label for="filter-all">All</label>
-
-          <!-- Filter women -->
-          <input
-            type="radio"
-            id="filter-women"
-            name="gender-filter"
-            value="Female"
-          />
-          <label for="filter-women">Women</label>
-
-          <!-- Filter men -->
-          <input
-            type="radio"
-            id="filter-men"
-            name="gender-filter"
-            value="Male"
-          />
-          <label for="filter-men">Men</label>
-
-          <!-- Clear filter button -->
-          <button id="clear-filter">Clear</button>
-        </div>
-
-        <div class="product-list--grid">
-          <!-- products here with DOM Manipulation -->
-        </div>
-        <nav class="page-number" aria-label="Page number">
-          <ol>
-            <li aria-current="page"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-          </ol>
-        </nav>
+      <section class="cart__container">
+        <!-- Products fetched from local storage and rendered with DOM manipulation -->
       </section>
-
+      <!-- Proceed to payment button -->
+      <div class="cart__payment-container">
+        <div class="btn__position">
+          <a href="./payment.html" class="btn btn--cart">Proceed to Payment</a>
+        </div>
+      </div>
       <section class="shipping">
         <div class="shipping__container">
           <div class="shipping_content">
             <div>
-              <img src="icons/Globe.png" alt="Globe icon" />
+              <img src="../icons/Globe.png" alt="Globe icon" />
             </div>
 
             <div>
@@ -144,7 +105,7 @@
 
           <div class="shipping_content">
             <div>
-              <img src="icons/Package.png" alt="Package icon" />
+              <img src="../icons/Package.png" alt="Package icon" />
             </div>
 
             <div>
@@ -155,7 +116,7 @@
 
           <div class="shipping_content">
             <div>
-              <img src="icons/Arrow.png" alt="Arrow icon" />
+              <img src="../icons/Arrow.png" alt="Arrow icon" />
             </div>
 
             <div>

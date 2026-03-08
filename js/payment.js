@@ -170,5 +170,5 @@ paymentForm.addEventListener("submit", function (event) {
   }
 
   // All good, go to confirmation page
-  window.location.href = "confirmation.html";
+  window.location.href = "../pages/confirmation.html";
 });

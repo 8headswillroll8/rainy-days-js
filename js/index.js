@@ -84,7 +84,7 @@ async function loadTrending() {
 
       productTitle.textContent = product.title;
       productPrice.textContent = product.price + " NOK";
-      productAnchor.href = "jacket.html?id=" + product.id;
+      productAnchor.href = "pages/jacket.html?id=" + product.id;
 
       // Combine elements and add to the page
       productCard.append(productImage, productTitle, productPrice);

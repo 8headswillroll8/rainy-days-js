@@ -42,7 +42,7 @@ function renderProducts(list) {
 
     productTitle.textContent = product.title;
     productPrice.textContent = `${product.price} NOK`;
-    productAnchor.href = `jacket.html?id=${product.id}`;
+    productAnchor.href = `../pages/jacket.html?id=${product.id}`;
 
     // Build and append the card
     productCard.append(productImage, productTitle, productPrice);
@@ -97,7 +97,7 @@ if (filterContainer) {
 
     // Filter by gender property from API
     const filtered = allProducts.filter(
-      (product) => product.gender === selectedValue
+      (product) => product.gender === selectedValue,
     );
 
     renderProducts(filtered);

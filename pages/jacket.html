@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,13 +7,12 @@
       name="description"
       content="The FjordFlex Pro is your all-weather essential—lightweight, waterproof, and breathable for hiking, skiing, or city storms."
     />
-    <title>Rainy Days | Cart</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/product.css" />
-    <link rel="stylesheet" href="css/fjordflex-pro-jacket.css" />
-    <link rel="stylesheet" href="css/cart.css" />
+    <title>Rainy Days | FjordFlex Pro Jacket</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+    <link rel="stylesheet" href="../css/fjordflex-pro-jacket.css" />
 
-    <script type="module" src="cart.js"></script>
+    <script type="module" src="../js/jacket.js"></script>
   </head>
   <body>
     <header>
@@ -30,16 +29,16 @@
 
         <nav class="nav nav__left">
           <ul class="nav__links">
-            <li class="nav__item"><a href="product.html">Shop</a></li>
+            <li class="nav__item"><a href="./product.html">Shop</a></li>
             <li class="nav__item"><a href="#">New Arrivals</a></li>
             <li class="nav__item"><a href="#">Lookbook</a></li>
           </ul>
         </nav>
 
-        <a href="index.html" class="nav__logo-wrapper">
+        <a href="../index.html" class="nav__logo-wrapper">
           <img
             class="nav__logo"
-            src="logo/rainy-days-logo.png"
+            src="../logo/rainy-days-logo.png"
             alt="Rainydays logo"
           />
         </a>
@@ -47,17 +46,17 @@
         <nav class="nav nav__right">
           <ul class="nav__icons">
             <li>
-              <a href="#"><img src="icons/heart.png" alt="Likes" /></a>
+              <a href="#"><img src="../icons/heart.png" alt="Likes" /></a>
             </li>
             <li>
-              <a href="#"><img src="icons/search.png" alt="Search" /></a>
+              <a href="#"><img src="../icons/search.png" alt="Search" /></a>
             </li>
             <li>
-              <a href="#"><img src="icons/profile.png" alt="Profile" /></a>
+              <a href="#"><img src="../icons/profile.png" alt="Profile" /></a>
             </li>
             <li>
-              <a href="cart.html"
-                ><img src="icons/cart.png" alt="Cart" id="cart-icon" /><span
+              <a href="./cart.html"
+                ><img src="../icons/cart.png" alt="Cart" id="cart-icon" /><span
                   class="cart-counter cart-counter--hidden"
                 ></span
               ></a>
@@ -68,33 +67,25 @@
     </header>
     <main>
       <section>
-        <!-- Breadcrumb nav -->
         <nav class="breadcrumb breadcrumb--jacket" aria-label="Breadcrumb">
           <ol>
-            <li aria-current="page">
-              <a href="product.html">‹ Continue Shopping</a>
-            </li>
+            <li><a href="index.html">Home page</a></li>
+            <li><a href="product.html">Jackets</a></li>
           </ol>
         </nav>
-        <div class="progress-bar">
-          <img src="icons/process-1.png" alt="Progress bar step one" />
+      </section>
+
+      <section class="product-list">
+        <div class="jacket__container">
+          <!-- Products fetched from API and rendered with DOM manipulation -->
         </div>
       </section>
 
-      <section class="cart__container">
-        <!-- Products fetched from local storage and rendered with DOM manipulation -->
-      </section>
-      <!-- Proceed to payment button -->
-      <div class="cart__payment-container">
-        <div class="btn__position">
-          <a href="payment.html" class="btn btn--cart">Proceed to Payment</a>
-        </div>
-      </div>
       <section class="shipping">
         <div class="shipping__container">
           <div class="shipping_content">
             <div>
-              <img src="icons/Globe.png" alt="Globe icon" />
+              <img src="../icons/Globe.png" alt="Globe icon" />
             </div>
 
             <div>
@@ -105,7 +96,7 @@
 
           <div class="shipping_content">
             <div>
-              <img src="icons/Package.png" alt="Package icon" />
+              <img src="../icons/Package.png" alt="Package icon" />
             </div>
 
             <div>
@@ -116,7 +107,7 @@
 
           <div class="shipping_content">
             <div>
-              <img src="icons/Arrow.png" alt="Arrow icon" />
+              <img src="../icons/Arrow.png" alt="Arrow icon" />
             </div>
 
             <div>
